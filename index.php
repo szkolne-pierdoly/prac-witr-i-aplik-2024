@@ -1,4 +1,6 @@
 <?php
+$orderBy = isset($_GET['orderBy']) ? $_GET['orderBy'] : "Id";
+
 try {
     $connection = new mysqli("db", "admin", "supersecret", "baza", 3306);
     if ($connection->connect_error) {
@@ -6,7 +8,7 @@ try {
     }
 
     // Select data from the database
-    $sql = "SELECT * FROM osoba";
+    $sql = "SELECT * FROM osoba ORDER BY $orderBy";
     $result = $connection->query($sql);
 
     if (!$result) {
@@ -43,11 +45,11 @@ try {
     <h1>здраствуй цие</h1>
     <table>
       <tr>
-        <th>Id</th>
-        <th>Imie</th>
-        <th>Nazwisko</th>
-        <th>Rok Urodzenia</th>
-        <th>Miejsce Urodzenia</th>
+        <th onclick="window.location.href='?orderBy=Id'">Id</th>
+        <th onclick="window.location.href='?orderBy=Imie'">Imie</th>
+        <th onclick="window.location.href='?orderBy=Nazwisko'">Nazwisko</th>
+        <th onclick="window.location.href='?orderBy=Rok_urodzenia'">Rok Urodzenia</th>
+        <th onclick="window.location.href='?orderBy=Miejsce_urodzenia'">Miejsce Urodzenia</th>
       </tr>
     <?php
     while ($row = $result->fetch_assoc()) {
