@@ -4,6 +4,16 @@ try {
     if ($connection->connect_error) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     }
+
+    // Select data from the database
+    $sql = "SELECT * FROM osoba";
+    $result = $connection->query($sql);
+
+    if (!$result) {
+        throw new Exception("Query failed: " . $connection->error);
+    }
+
+    $connection->close();
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
@@ -17,5 +27,10 @@ try {
 </head>
 <body>
     <h1>здраствуй цие</h1>
+    <?php
+    while ($row = $result->fetch_assoc()) {
+        echo "<p>" . $row["Imie"] . " " . $row["Nazwisko"] . "</p>";
+    }
+    ?>
 </body>
 </html>
