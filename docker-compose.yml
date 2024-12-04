@@ -22,7 +22,12 @@ services:
       MYSQL_PASSWORD: supersecret
     ports:
       - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql  # Persist database data
 
 networks:
   default:
     driver: bridge
+
+volumes:
+  db_data:  # Define the volume for database persistence
