@@ -1,21 +1,26 @@
 <?php
-try {
-    $connection = new mysqli("db", "admin", "supersecret", "baza", 3306);
-    if ($connection->connect_error) {
-        throw new Exception("Connection failed: " . $connection->connect_error);
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>здраствуй цие</h1>
-</body>
-</html>
+
+$id_pol = mysqli_connect('db', 'admin', 'supersecret', 'baza');
+$query = "SELECT * FROM licznik";
+$result = mysqli_query($id_pol, $query);
+$tab = mysqli_fetch_row($result);
+$wartosc = $tab[0] ?? null;
+
+$czas = time();
+$dodajQuery = "INSERT INTO czas (czas) VALUES ($czas)";
+mysqli_query($id_pol, $dodajQuery);
+
+//remove all czases older than 30s
+$usunQuery = "DELETE FROM czas WHERE czas < " . ($czas - 30);
+mysqli_query($id_pol, $usunQuery);
+
+//count all czases taht are left
+$countQuery = "SELECT COUNT(*) FROM czas";
+$result = mysqli_query($id_pol, $countQuery);
+$count = mysqli_fetch_row($result)[0];
+
+//update licznik
+$updateQuery = "UPDATE licznik SET hit = $count";
+mysqli_query($id_pol, $updateQuery);
+
+echo $count;
