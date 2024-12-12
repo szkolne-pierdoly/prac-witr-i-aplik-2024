@@ -24,3 +24,6 @@ $updateQuery = "UPDATE licznik SET hit = $count";
 mysqli_query($id_pol, $updateQuery);
 
 echo $count;
+?><br/>
+<a href="login.php">Login</a><br/>
+<a href="register.php">Register</a>

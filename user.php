@@ -3,6 +3,8 @@ session_start();
 
 if (isset($_SESSION['user'])) {
     echo 'logged as ' . $_SESSION['user']['username'];
+    echo '<br>';
+    echo '<a href="logout.php">Logout</a>';
     exit();
 } else {
     $login = $_POST['login'];
@@ -21,6 +23,8 @@ if (isset($_SESSION['user'])) {
         $_SESSION['user'] = $row;
         echo '<br>';
         echo 'logged as ' . $row['username'];
+        echo '<br>';
+        echo '<a href="logout.php">Logout</a>';
     } else {
         echo 'User not found';
     }
