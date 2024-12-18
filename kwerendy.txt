@@ -1,0 +1,9 @@
+kwerenda 1:
+INSERT INTO odpowiedzi(odpowiedzi.konta_id, odpowiedzi.Pytania_id, odpowiedzi.odpowiedz) VALUES (5, 1, "Przyda Ci się także wysoki stół, 
+na którym postawisz pieska.");
+
+kwerenda 2:
+SELECT nick, YEAR(CURDATE()) - konta.rejestracja AS latNaForum
+FROM konta WHERE konta.nick = "Ewa" OR konta.nick = "Tomek" OR konta.nick = "Monika";
+
+kwerenda 3:
