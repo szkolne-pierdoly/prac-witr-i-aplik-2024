@@ -25,6 +25,18 @@ services:
     volumes:
       - db_data:/var/lib/mysql  # Persist database data
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: admin
+      PMA_PASSWORD: supersecret
+    depends_on:
+      - db
+
 networks:
   default:
     driver: bridge
