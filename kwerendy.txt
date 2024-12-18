@@ -7,3 +7,13 @@ SELECT nick, YEAR(CURDATE()) - konta.rejestracja AS latNaForum
 FROM konta WHERE konta.nick = "Ewa" OR konta.nick = "Tomek" OR konta.nick = "Monika";
 
 kwerenda 3:
+SELECT k.nick, k.postow, p.pytanie
+FROM konta k
+JOIN pytania p ON k.id = p.konta_id
+WHERE p.id = 1;
+
+kwerenda 4;
+SELECT o.id, o.odpowiedz, k.nick
+FROM odpowiedzi o
+JOIN konta k ON o.konta_id = k.id
+WHERE o.Pytania_id = 1;
