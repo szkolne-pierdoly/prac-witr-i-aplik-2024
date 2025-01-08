@@ -15,7 +15,7 @@ CREATE TABLE odpowiedz (
 );
 
 CREATE TABLE glos (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     ankieta_id INT NOT NULL,
     odpowiedz_id INT NOT NULL,
 
