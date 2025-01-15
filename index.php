@@ -1,12 +1,5 @@
 <?php
-try {
-    $connection = new mysqli("db", "admin", "supersecret", "baza", 3306);
-    if ($connection->connect_error) {
-        throw new Exception("Connection failed: " . $connection->connect_error);
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,19 +13,59 @@ try {
         <h3>Baza flmow</h3>
         <form method="POST">
             <select name="gat">
-                <option>Sci-Fi</option>
-                <option>animacja</option>
-                <option>dramat</option>
-                <option>horror</option>
-                <option>komedia</option>
+                <option value="1">Sci-Fi</option>
+                <option value="2">animacja</option>
+                <option value="zse">dramat</option>
+                <option value="4">horror</option>
+                <option value="5">komedia</option>
             </select>
             <input type="submit" value="Filmy" />
         </form>
         <?php
-            if (isset($_POST['gat'])) {
-                echo "TEST";
-            } else {
+            if (!isset($_POST['gat'])) {
                 return;
+            }
+
+            try {
+                $connection = new mysqli("db", "root", "supersecret", "baza_15_01_2025", 3306);
+                if ($connection->connect_error) {
+                    throw new Exception("Connection failed: " . $connection->connect_error);
+                }
+
+                $gatunek = $_POST['gat'] == 'zse' ? '3' : $_POST['gat'];
+
+                $sql = "SELECT tytul, rok, ocena FROM filmy WHERE gatunki_id = ".$gatunek.";";
+
+                $res = $connection->query($sql);
+
+                $gatslownie = "";
+
+                
+                if ($gatunek == "1") {
+                        $gatslownie = "Sci-Fi";
+                } else if ($gatunek == "2") {
+                        $gatslownie = "animacja";
+                } else if ($gatunek == "3") {
+                        $gatslownie = "dramat";
+                } else if ($gatunek == "4") {
+                        $gatslownie = "horror";
+                } else if ($gatunek == "5") {
+                    $gatslownie = "komedia";
+                }
+                
+
+
+
+                echo "<h2>".$gatunek.". ".$gatslownie."</h2>";
+
+                if ($res->num_rows > 0) {
+                    while ($row = $res->fetch_assoc()) {
+                        echo "<p>tytul: ".$row['tytul']."; Rok produkcji: ".$row['rok']."; ocena: ".$row['ocena']."</p>";
+                    }
+                } 
+
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
             }
         ?>
     </div>
