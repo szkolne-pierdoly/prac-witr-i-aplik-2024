@@ -16,6 +16,25 @@ try {
     <title>Document</title>
 </head>
 <body>
-    <h1>здраствуй цие</h1>
+    <div>
+        <h3>Baza flmow</h3>
+        <form method="POST">
+            <select name="gat">
+                <option>Sci-Fi</option>
+                <option>animacja</option>
+                <option>dramat</option>
+                <option>horror</option>
+                <option>komedia</option>
+            </select>
+            <input type="submit" value="Filmy" />
+        </form>
+        <?php
+            if (isset($_POST['gat'])) {
+                echo "TEST";
+            } else {
+                return;
+            }
+        ?>
+    </div>
 </body>
 </html>
