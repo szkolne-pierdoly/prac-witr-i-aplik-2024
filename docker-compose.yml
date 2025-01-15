@@ -31,7 +31,7 @@ services:
       - "8081:80"
     environment:
       PMA_HOST: db
-      PMA_USER: admin
+      PMA_USER: root
       PMA_PASSWORD: supersecret
     depends_on:
       - db
