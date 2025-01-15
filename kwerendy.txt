@@ -1,0 +1,5 @@
+kwerenda 1:
+SELECT tytul, rok, ocena FROM filmy WHERE gatunki_id = 5;
+
+kwerenda 2:
+SELECT filmy.id, filmy.tytul, (SELECT rezyserzy.imie FROM rezyserzy WHERE rezyserzy.id = rezyserzy_id) AS imie_rezysera, (SELECT rezyserzy.nazwisko FROM rezyserzy WHERE rezyserzy.id = rezyserzy_id) AS nazwisko_rezysera FROM filmy;
