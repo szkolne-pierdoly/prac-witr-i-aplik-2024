@@ -68,8 +68,10 @@ function getGlosCount($database_adress, $database_user, $database_password, $dat
                                 getGlosCount($database_adress, $database_user, $database_password, $database_db, $row["id"])
                             .'
                             </div>
-                            <button class="glosuj-button">
-                                zaglosuj
+                            <a href="./glosuj.php?id='.$row["id"].'"> 
+                                <button class="glosuj-button">
+                                    zaglosuj
+                                </button>
                             </button>
                         </div>
                     ';

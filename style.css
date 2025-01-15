@@ -34,9 +34,12 @@ body {
     color: #fff;
     border: none;
     border-radius: 8px;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
 }
 
-.glos   uj-button:hover {
+.glosuj-button:hover {
     background: #256697;
 }
 

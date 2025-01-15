@@ -15,9 +15,10 @@ CREATE TABLE odpowiedz (
 );
 
 CREATE TABLE glos (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT,
     ankieta_id INT NOT NULL,
     odpowiedz_id INT NOT NULL,
+    nazwa_uzytkow VARCHAR(128) NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (ankieta_id) REFERENCES ankieta(id),
