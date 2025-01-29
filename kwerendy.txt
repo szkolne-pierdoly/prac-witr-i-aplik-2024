@@ -1,0 +1,4 @@
+KW1: SELECT klienci.imie, klienci.nazwisko, klienci.punkty FROM klienci ORDER BY klienci.punkty DESC LIMIT 3;
+KW2: SELECT typy.nazwa, (SELECT COuNT(klienci.id) AS Ilosc FROM klienci WHERE klienci.Typy_id = typy.id) AS IloscKlientow FROM typy;
+KW3: SELECT klienci.zdjecie, klienci.imie, (SELECT opinie.opinia FROM opinie WHERE opinie.Klienci_id = klienci.id) FROM klienci WHERE klienci.id = 2 OR klienci.id = 3;
+KW4: ALTER TABLE klienci ADD COLUMN adres VARCHAR(50);
