@@ -1,0 +1,42 @@
+* {
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.header {
+    background-color: tomato;
+    padding: 10px;
+    color: white;
+}
+
+.main {
+    background-color: seashell;
+    height: 500px;
+    overflow: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.footer > * {
+    background-color: tomato;
+    width: 25%;
+    color: white;
+    height: 140px;
+}
+
+.footer > * > a {
+    color: white;
+}
