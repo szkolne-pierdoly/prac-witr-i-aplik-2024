@@ -51,7 +51,19 @@ try {
             </div>
             <div class="footer_2">
                 <h3>Nasi top klienc</h3>
-
+                <?php
+                    $sql = "SELECT klienci.imie, klienci.nazwisko, klienci.punkty FROM klienci ORDER BY klienci.punkty DESC LIMIT 3;";
+                    $result = $connection->query($sql);
+                    echo "<ol>";
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<li>'.$row["imie"].' '.$row["nazwisko"].', '.$row["punkty"].' pkt.</li>';
+                        }
+                    } else {
+                        echo "Brak klientów";
+                    }
+                    echo "</ol>";
+                ?>
             </div>
             <div class="footer_3">
                 <h3>Skontaktuj się</h3>
