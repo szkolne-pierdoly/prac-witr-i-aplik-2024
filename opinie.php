@@ -1,6 +1,7 @@
 <?php
+// ze wzgledu na to ze moja baza danych jest na kontenerze docker a nie xampp u mnie jest inna nazwa bazy, haslo i host
 try {
-    $connection = new mysqli("db", "admin", "supersecret", "baza", 3306);
+    $connection = new mysqli("db", "root", "supersecret", "baza-22-01-2025", 3306);
     if ($connection->connect_error) {
         throw new Exception("Connection failed: " . $connection->connect_error);
     }
@@ -23,6 +24,25 @@ try {
         </div>
         <div class="main">
             <h2>Opinie naszych klientów</h2>
+            <?php
+            $sql = "SELECT opinia, (SELECT klienci.imie FROM klienci WHERE klienci.id = opinie.Klienci_id) AS imie, (SELECT klienci.zdjecie FROM klienci WHERE klienci.id = opinie.Klienci_id) as zdjecie FROM opinie;";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '
+                    <div class="opinia">
+                        <img src="./zdjecia/'.$row["zdjecie"].'" alt="zdjecie">
+                        <div class="dane">
+                            <q>'.$row["opinia"].'</q>
+                            <h4>'.$row["imie"].'</h4>
+                        </div>
+                    </div>';
+                }
+            } else {
+                echo "Brak opinii";
+            }
+            ?>
         </div>
         <div class="footer">
             <div class="footer_1">

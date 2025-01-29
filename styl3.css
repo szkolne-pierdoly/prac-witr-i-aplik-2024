@@ -22,6 +22,9 @@ body {
     background-color: seashell;
     height: 500px;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer {
@@ -39,4 +42,52 @@ body {
 
 .footer > * > a {
     color: white;
+}
+
+.opinia {
+    background-color: white;
+    color: dimgray;
+    width: 60%;
+    height: 220px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin: 10px;
+    box-shadow: 0 0 10px 5px dimgray;
+    display: flex;
+    flex-direction: row;
+}
+
+.opinia > .dane {
+    display: flex;
+    flex-direction: column;
+}
+
+.opinia > img {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin: 10px;
+}
+
+.dane {
+    width: 100%;
+}
+
+.dane > q {
+    padding: 10px;
+    font-size: 150%;
+    font-style: italic;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h4 {
+    text-align: right;
+    margin-right: 40px;
+    font-size: 150%;
+    font-style: italic;
 }
