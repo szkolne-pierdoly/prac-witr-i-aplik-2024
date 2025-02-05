@@ -37,5 +37,41 @@ body {
 
 .menu > form > label:hover {
     color: white;
-    text-decoration: underline;   
+    text-decoration: underline;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.left, .right {
+    background-color: azure;
+    height: 550px;
+    margin: 0px;
+}
+
+.left {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    width: 30%;
+}
+
+.table {
+    border: 1px navy solid;
+    width: 70%;
+    margin: auto;
+}
+
+.table > tr:hover {
+    background-color: skyblue;
+}
+
+.footer {
+    background-color: navy;
+    color: white;
 }

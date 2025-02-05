@@ -17,7 +17,7 @@ try {
     <link href="./styl.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="main">
+    <div class="content">
         <header class="header">
             <div class="header1">
                 <img src="./obraz1.png" alt="mapa polski"/>
@@ -38,8 +38,31 @@ try {
             </form>
         </menu>
         <main class="main">
+            <div class="left">
+                <h3>Stany na dzień 2022-05-05</h3>
+                <table class="table">
+                    <th class="t-header">
+                        <td>Wodomierz</td>
+                        <td>Rzeka</td>
+                        <td>Ostrzegawczy</td>
+                        <td>Alarmowy</td>
+                        <td>Aktualny</td>
+                    </th>
+                    <tr>
+                        <td>
 
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="right">
+
+            </div>
         </main>
+        <footer class="footer">
+            strone wykonal: 69420213769
+        </footer>
     </div>
 </body>
 </html>
