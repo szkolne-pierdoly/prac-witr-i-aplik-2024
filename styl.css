@@ -1,0 +1,41 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: navy;
+    color: white;
+    text-align: center;
+}
+
+.header > * {
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+    height: 100px;
+}
+
+.menu {
+    background-color: navy;
+    padding: 20px;
+    margin: 0;
+    color: white;
+}
+
+.menu > form > label {
+    color: silver;
+    margin: 50px;
+}
+
+.menu > form > label:hover {
+    color: white;
+    text-decoration: underline;   
+}
