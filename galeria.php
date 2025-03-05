@@ -38,11 +38,7 @@
 
     <aside class="prawy">
         <h2>Najbardziej lubiane</h2>
-        <ol>
-            <li>Zdjęcie 1 (100 polubień)</li>
-            <li>Zdjęcie 2 (80 polubień)</li>
-            <li>Zdjęcie 3 (75 polubień)</li>
-        </ol>
+        <?php include 'skrypt2.php'; ?>
         <strong>Zobacz wszystkie nasze zdjęcia</strong>
     </aside>
 
