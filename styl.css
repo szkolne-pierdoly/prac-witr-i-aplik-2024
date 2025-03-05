@@ -73,6 +73,6 @@ tr:hover {
   background-color: #80C683;
 }
 
-table > tr::last-child {
+table tr::last-child {
   background-color: #ff0000;
 }
