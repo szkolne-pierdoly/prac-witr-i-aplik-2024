@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+header("Refresh: 10");
+?><!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -61,11 +63,11 @@
                     if (mysqli_num_rows($response) > 0) {
                         while ($row = mysqli_fetch_assoc($response)) {
                             echo "<tr><td>"
-                                 .$row["rejestracja"]."</td><td>"
-                                 .$row["ulica"]."</td><td>"
-                                 .$row["waga"]."</td><td>"
-                                 .$row["dzien"]."</td><td>"
-                                 .$row["czas"]."</td>"
+                                .$row["rejestracja"]."</td><td>"
+                                .$row["ulica"]."</td><td>"
+                                .$row["waga"]."</td><td>"
+                                .$row["dzien"]."</td><td>"
+                                .$row["czas"]."</td>"
                                 ."</tr>";
                         }
                     }
