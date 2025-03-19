@@ -85,3 +85,9 @@ a {
   flex-direction: row;
   width: 100%;
 }
+
+.main-3-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

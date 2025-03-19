@@ -74,6 +74,28 @@
             ?>
           </select>
           <input type="submit" value="Wyszukaj" />
+          <div class="main-3-flex-wrapper">
+            <?php
+              if (isset($_POST['marka'])) {
+                $marka = $_POST['marka'];
+                $sql = '';
+                $sql = 'SELECT samochody.model, samochody.cena, samochody.zdjecie FROM samochody WHERE (SELECT marki.nazwa FROM marki WHERE marki.id = samochody.marki_id) = "Audi";';
+
+                $result = mysqli_query($con, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo '
+                      <div class="main-2">
+                        <img src="./img/'.$row['zdjecie'].'">
+                        <h4>'.$marka.' '.$row['model'].'</h4>
+                        <h4>Cena: '.$row['cena'].'</h4>
+                      </div>
+                    ';
+                  }
+                }
+              }
+            ?>
+          </div>
         </form>
       </div>
     </main>
