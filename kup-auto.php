@@ -58,11 +58,20 @@
           ?>
         </div>
       </div>
-      <div class="main-3">
+      <div class="main-3-wrapper">
         <h2>Wybierz markę</h2>
         <form method="post">
-          <select>
-            
+          <select name="marka">
+            <?php
+              $sql = 'SELECT marki.nazwa FROM marki;';
+              $result = mysqli_query($con, $sql);
+
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  echo '<option>'.$row['nazwa'].'</option>';
+                }
+              }
+            ?>
           </select>
           <input type="submit" value="Wyszukaj" />
         </form>
