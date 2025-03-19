@@ -36,7 +36,29 @@
           }
         ?>
       </div>
-      <div class="main-2">
+      <div class="main-2-wrapper">
+        <h2>Ofery Wyróżnione</h2>
+        <div class="main-2-row-wrapper">
+          <?php
+            $sql = 'SELECT (SELECT marki.nazwa FROM marki WHERE marki.id = samochody.marki_id) as marka, samochody.model, samochody.rocznik, samochody.cena, samochody.zdjecie FROM samochody WHERE samochody.wyrozniony = 1';
+
+            $result = mysqli_query($con, $sql);
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo '
+                  <div class="main-2">
+                    <img src="./img/'.$row['zdjecie'].'">
+                    <h4>'.$row['marka'].' '.$row['model'].'</h4>
+                    <p>Rocznik: '.$row['rocznik'].'</p>
+                    <h4>Cena: '.$row['cena'].'</h4>
+                  </div>
+                ';
+              }
+            }
+          ?>
+        </div>
+      </div>
+      <div class="main-3">
         <h2>Wybierz markę</h2>
         <form method="post">
           <select>
@@ -44,9 +66,6 @@
           </select>
           <input type="submit" value="Wyszukaj" />
         </form>
-      </div>
-      <div class="main-3">
-
       </div>
     </main>
     <footer class="footer">
