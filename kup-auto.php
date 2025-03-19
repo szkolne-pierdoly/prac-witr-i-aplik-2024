@@ -13,7 +13,28 @@
     </header>
     <main class="main">
       <div class="main-1">
+        <?php
+          $con = mysqli_connect("db","root","supersecret","baza-19-03-2025");
+          if (mysqli_connect_errno()) {
+            printf("", mysqli_connect_error());
+            exit(1);
+          }
 
+          $sql = "SELECT samochody.model, samochody.rocznik, samochody.przebieg, samochody.paliwo, samochody.cena, samochody.zdjecie FROM samochody WHERE samochody.id = 10;";
+          $result = mysqli_query($con, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '
+                <img src="./img/'.$row['zdjecie'].'">
+                <div>
+                  <h4>Oferta dnia: Toyota '.$row["model"].'</h4>
+                  <p>Rocznik: '.$row["rocznik"].', Przebieg: '.$row["przebieg"].', rodzaj paliwa: '.$row["paliwo"].'</p>
+                  <h4>Cena: '.$row["cena"].'</h4>
+                </div>
+              ';
+            }
+          }
+        ?>
       </div>
       <div class="main-2">
         <h2>Wybierz markę</h2>

@@ -29,7 +29,9 @@ body {
 }
 
 .main-1 img {
-  float: right;
+  float: left;
+  width: auto;
+  height: 100%;
 }
 
 .main-2 {
@@ -65,6 +67,7 @@ img {
 h4 {
   font-size: 180%;
   text-align: center;
+  color: crimson;
 }
 
 a {
