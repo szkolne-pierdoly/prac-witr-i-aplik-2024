@@ -1,0 +1,4 @@
+kw1: SELECT marki.nazwa FROM marki;
+kw2: SELECT samochody.model, samochody.rocznik, samochody.przebieg, samochody.paliwo, samochody.cena, samochody.zdjecie FROM samochody WHERE samochody.id = 10;
+kw3: SELECT (SELECT marki.nazwa FROM marki WHERE marki.id = samochody.marki_id), samochody.model, samochody.rocznik, samochody.cena, samochody.zdjecie FROM samochody WHERE samochody.wyrozniony = 1;
+kw4: SELECT samochody.model, samochody.cena, samochody.zdjecie FROM samochody WHERE (SELECT marki.nazwa FROM marki WHERE marki.id = samochody.marki_id) = "Audi";
