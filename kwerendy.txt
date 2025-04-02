@@ -1,3 +1,4 @@
 kw1: SELECT nazwa, ilosc, opis, cena, zdjecie FROM produkty WHERE produkty.Rodzaje_id = (1 || 2);
 kw2: SELECT produkty.nazwa, (SELECT producenci.nazwa FROM producenci WHERE producenci.id = produkty.Producenci_id) FROM produkty
 kw3: CREATE USER 'Anna' IDENTIFIED BY '@nna23';
+kw4: INSERT INTO produkty (produkty.Rodzaje_id, produkty.Producenci_id, produkty.nazwa, produkty.ilosc, produkty.opis, produkty.cena, produkty.zdjecie) VALUES ((SELECT rodzaje.id FROM rodzaje WHERE rodzaje.nazwa = "owoce"), (SELECT producenci.id FROM producenci WHERE producenci.nazwa = "warzywa-rolnik"), "owoc1", 10, "", 9.99, "owoce.jpg");
