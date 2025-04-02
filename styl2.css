@@ -30,7 +30,10 @@ body {
 .main {
   background-color: #C8E6C9;
   height: 600px;
-  overflow: visible;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .footer {

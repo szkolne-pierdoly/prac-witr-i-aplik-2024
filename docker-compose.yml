@@ -16,7 +16,7 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: supersecret
-      MYSQL_DATABASE: baza
+      MYSQL_DATABASE: 1
       MYSQL_USER: admin
       MYSQL_PASSWORD: supersecret
     ports:
