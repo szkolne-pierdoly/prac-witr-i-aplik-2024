@@ -1,0 +1,3 @@
+kw1: SELECT nazwa, ilosc, opis, cena, zdjecie FROM produkty WHERE produkty.Rodzaje_id = (1 || 2);
+kw2: SELECT produkty.nazwa, (SELECT producenci.nazwa FROM producenci WHERE producenci.id = produkty.Producenci_id) FROM produkty
+kw3: CREATE USER 'Anna' IDENTIFIED BY '@nna23';
