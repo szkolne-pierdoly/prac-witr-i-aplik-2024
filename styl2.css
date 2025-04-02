@@ -33,7 +33,9 @@ body {
   overflow: scroll;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  flex-wrap: wrap;
 }
 
 .footer {

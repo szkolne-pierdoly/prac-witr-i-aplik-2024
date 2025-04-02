@@ -1,3 +1,18 @@
+<?php
+if (isset($_POST)) {
+    $conn = mysqli_connect('db', 'root', 'supersecret', 'dane2'); // change to localhost if not using docker to run
+    if (mysqli_connect_errno()) {
+        printf("", mysqli_connect_error());
+        exit(1);
+    }
+
+    if (isset($_POST['cena']) && isset($_POST['nazwa'])) {
+        $sql = 'INSERT INTO produkty (produkty.Rodzaje_id, produkty.Producenci_id, produkty.nazwa, produkty.ilosc, produkty.opis, produkty.cena, produkty.zdjecie) VALUES (1, 4, "'.$_POST['nazwa'].'", 10, "", '.$_POST['cena'].', "owoce.jpg");';
+
+        mysqli_query($conn, $sql);
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,11 +63,11 @@
             ?>
         </main>
         <footer class="footer">
-            <form>
+            <form method="post">
                 <label>nazwa:</label>
-                <input type="text" />
+                <input type="text" id="nazwa" name="nazwa"/>
                 <label>Cena</label>
-                <input type="text" />
+                <input type="text" name="cena" id="cena"/>
                 <input type="submit" value="Dodaj produkt" />
             </form>
             <p>Strone wykonal: 11111111111</p>
@@ -60,3 +75,7 @@
     </div>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
